@@ -8,12 +8,12 @@
       </div>
   </div>
 </nav>
-<div class="container p-3">
+<div class="container-fluid p-3 pt-0">
   <div class="row">
-    <div class="col-3 ">
+    <div class="col-lg-4">
       <img src="https://s-i.huffpost.com/gen/1148926/images/o-CLASSIC-BOOKS-ORIGINAL-COVERS-facebook.jpg"  class="img-fluid img-thumbnail"  alt=""/>
     </div>
-    <div class="col-3 ">
+    <div class="col-lg-4">
       <h1>Title: </h1>
       <p class="font-weight-bold">Author: </p>
       <p class="font-weight-bold">Publisher: </p>
@@ -26,7 +26,33 @@
       <p class="muted">Year Published: </p>
       <p class="muted">ISBN: </p>
     </div>
+    <div class="col-lg-4 bg-light m-0">
+      <form>
+        <fieldset>
+          <legend class="text-decoration-underline mb-5">Add to Favourites</legend>
+          <!-- My rating | dropdown -->
+          <!-- <label for="myRating">My Rating</label> -->
+          <div class="input-group mb-5">
+            <label class="input-group-text" for="MyRating">My Rating</label>
+            <select class="form-select" id="MyRating">
+              <option selected>Choose...</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <!-- My review | Textarea -->
+          <div class="input-group">
+            <span class="input-group-text">My Review</span>
+            <textarea class="form-control" rows="17" aria-label="With textarea"></textarea>
+          </div>
+        </fieldset>
+      </form>
+    </div>
   </div>
+  <hr>
 </div>
 <footer class="footer footer-fixed text-center">
   <small>&copy; 2023 MyLibrary</small>  
