@@ -1,4 +1,3 @@
-import { stringify } from "querystring";
 
 
 export interface IBook
@@ -10,6 +9,7 @@ export interface IBook
     yearPublished: string;
     description: string;
     isbn: string;
+    coverArt:string;
 }
 
 export class Book
@@ -21,8 +21,9 @@ export class Book
     yearPublished: string;
     description: string;
     isbn: string;
+    coverArt:string;
 
-    constructor(title: string, author: string,  publisher: string, yearPublished: string, description: string, isbn: string)
+    constructor(title: string, author: string,  publisher: string, yearPublished: string, description: string, isbn: string, coverArt:string)
     {
         this.title = title;
         this.author = author;
@@ -30,5 +31,6 @@ export class Book
         this.yearPublished = yearPublished;
         this.description = description;
         this.isbn = isbn;
+        this.coverArt = coverArt;
     }
 }

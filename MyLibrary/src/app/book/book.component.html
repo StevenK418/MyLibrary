@@ -1,0 +1,49 @@
+<!-- Main Display Section -->
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-2 mt-5 p-sm-20">
+        <img src="{{bookData?.coverArt}}"  class="img-fluid img-thumbnail"  alt=""/>
+      </div>
+      <div class="col-lg-6 p-5 pt-0 mt-5">
+        <h1>Title: {{bookData?.title}}</h1>
+        <p><span class="fw-bold">Author: </span> {{bookData?.author}}</p>
+        <p><span class="fw-bold">Publisher</span> {{bookData?.publisher}}</p>
+        <p class="fw-bold">Description:</p>
+        <p>
+          {{bookData?.description}}
+        </p>
+        <p><span class="fw-bold">Year Published:</span> {{bookData?.yearPublished}}</p>
+        <p><span class="fw-bold">ISBN:</span> {{bookData?.isbn}}</p>
+      </div>
+      <div class="col-lg-4 bg-light m-0 p-5">
+        <form>
+          <fieldset>
+            <legend class="text-decoration-underline mb-5">Add to Favourites</legend>
+            <!-- My rating | dropdown -->
+            <!-- <label for="myRating">My Rating</label> -->
+            <div class="input-group mb-5">
+              <label class="input-group-text" for="MyRating">My Rating</label>
+              <select class="form-select" id="MyRating">
+                <option selected>Choose...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+            <!-- My review | Textarea -->
+            <div class="input-group">
+              <span class="input-group-text">My Review</span>
+              <textarea class="form-control" rows="17" aria-label="With textarea"></textarea>
+            </div>
+          </fieldset>
+          <div class="col-5 mt-3">
+            <button class="btn btn-primary">Search</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- END of Main Display Section -->
+

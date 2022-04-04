@@ -13,6 +13,7 @@ import { IBook } from '../interfaces/book';
 export class BookApiService {
 
   booksDataCollection:AngularFirestoreCollection<IBook>;
+
   booksData?:Observable<IBook[]>;
 
   allBooksData?:IBook[];
@@ -21,14 +22,14 @@ export class BookApiService {
 
   constructor(private _http:HttpClient, private _afs:AngularFirestore) 
   { 
-    this.booksDataCollection =_afs.collection<IBook>("books_data");
+    this.booksDataCollection = _afs.collection<IBook>("books_data");
   }
 
   getBookData():Observable<IBook[]>
   {
     //Connect to the db
     this.booksData = this.booksDataCollection.valueChanges({idField:`id`});
-    this.booksData?.subscribe(
+    this.booksData.subscribe(
       data=> console.log("getBooksData" + JSON.stringify(data))
     )
 
