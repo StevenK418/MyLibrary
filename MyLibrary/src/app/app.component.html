@@ -1,4 +1,4 @@
-<!-- As a link -->
+<!-- Navbar | Header -->
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
     <div class="row">
@@ -8,12 +8,38 @@
       </div>
   </div>
 </nav>
-<div class="container-fluid p-3 pt-0">
+<!-- END of Navbar | Header -->
+<!-- Search section -->
+<div class="container-fluid p-5 bg-dark text-white">
   <div class="row">
-    <div class="col-lg-4">
+    <form>
+        <legend class="text-decoration-underline justify-content-center">Search</legend>
+        <div class="col-4 justify-content-center ">
+          <div class="input-group">
+            <span class="input-group-text">Title</span>
+            <input type="text" class="form-control">
+          </div>
+        </div>
+        <div class="col-4justify-content-center ">
+          <div class="input-group m">
+            <span class="input-group-text">ISBN</span>
+            <input type="text" class="form-control">
+          </div>
+        </div>  
+        <div class="col-3 mt-3 justify-content-center">
+        <button class="btn btn-primary">Search</button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- END of Search section -->
+<!-- Main Display Section -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-2 mt-5">
       <img src="https://s-i.huffpost.com/gen/1148926/images/o-CLASSIC-BOOKS-ORIGINAL-COVERS-facebook.jpg"  class="img-fluid img-thumbnail"  alt=""/>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-6 p-5 pt-0 mt-5">
       <h1>Title: </h1>
       <p class="font-weight-bold">Author: </p>
       <p class="font-weight-bold">Publisher: </p>
@@ -26,7 +52,7 @@
       <p class="muted">Year Published: </p>
       <p class="muted">ISBN: </p>
     </div>
-    <div class="col-lg-4 bg-light m-0">
+    <div class="col-lg-4 bg-light m-0 p-5">
       <form>
         <fieldset>
           <legend class="text-decoration-underline mb-5">Add to Favourites</legend>
@@ -49,11 +75,14 @@
             <textarea class="form-control" rows="17" aria-label="With textarea"></textarea>
           </div>
         </fieldset>
+        <div class="col-5 mt-3">
+          <button class="btn btn-primary">Search</button>
+        </div>
       </form>
     </div>
   </div>
-  <hr>
 </div>
-<footer class="footer footer-fixed text-center">
+<!-- END of Main Display Section -->
+<footer class="footer footer-fixed text-center p-3">
   <small>&copy; 2023 MyLibrary</small>  
 </footer>
