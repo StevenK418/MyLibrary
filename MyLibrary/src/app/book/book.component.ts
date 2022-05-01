@@ -21,6 +21,20 @@ export class BookComponent implements OnInit {
   ngOnInit(){
   }
 
-
-
+  //Adds the book, along with the review and rating to the database
+  // addBookToDatabase( review:string, rating:string)
+  // {
+  //     //Construct a new book
+  //     let book:IBook = new Book(
+  //                                 title,
+  //                                 author,
+  //                                 publisher,
+  //                                 yearPublished,
+  //                                 description,
+  //                                 isbn,
+  //                                 coverArt
+  //     );
+  //     //Send this book to the API service to be added to the DB.
+  //     this._bookAPIService.addBookData(book);
+  // }
 }

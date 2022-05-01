@@ -10,7 +10,6 @@ import { IBook } from '../interfaces/book';
 })
 export class DisplayBookComponent implements OnInit {
 
-
   booksData?:IBook[];
 
   constructor(private _bookAPIService:BookApiService) { }
@@ -19,5 +18,4 @@ export class DisplayBookComponent implements OnInit {
   {
     this._bookAPIService.getBookData().subscribe(booksData => {this.booksData = booksData});
   }
-
 }

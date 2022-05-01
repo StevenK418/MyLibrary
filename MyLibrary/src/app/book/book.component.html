@@ -22,8 +22,8 @@
             <!-- My rating | dropdown -->
             <!-- <label for="myRating">My Rating</label> -->
             <div class="input-group mb-5">
-              <label class="input-group-text" for="MyRating">My Rating</label>
-              <select class="form-select" id="MyRating">
+              <label class="input-group-text" for="rating">My Rating</label>
+              <select class="form-select" name="rating" id="rating" #rating>
                 <option selected>Choose...</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -35,11 +35,11 @@
             <!-- My review | Textarea -->
             <div class="input-group">
               <span class="input-group-text">My Review</span>
-              <textarea class="form-control" rows="17" aria-label="With textarea"></textarea>
+              <textarea class="form-control" name="review" id="review" rows="17" aria-label="With textarea" #review></textarea>
             </div>
           </fieldset>
           <div class="col-5 mt-3">
-            <button class="btn btn-primary">Search</button>
+            <button type="button" class="btn btn-primary">Submit</button>
           </div>
         </form>
       </div>

@@ -4,11 +4,11 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 import {AngularFirestoreCollection, AngularFirestore} from "@angular/fire/compat/firestore";
-import { IBook } from '../interfaces/book';
+import { IBook, IBookAPI } from '../interfaces/book';
+import { jsDocComment } from '@angular/compiler';
 
 
 @Injectable()
-
 
 export class BookApiService {
 
@@ -25,6 +25,19 @@ export class BookApiService {
     this.booksDataCollection = _afs.collection<IBook>("books_data");
   }
 
+  //Adds a new book to the database
+  addBookData(book:IBook):void
+  {
+      this.booksDataCollection.add(JSON.parse(JSON.stringify(book)));
+  }
+
+  //Deletes a book of a given id from the database
+  deleteBookData(bookId:string):void
+  {
+        this.booksDataCollection.doc(bookId).delete();
+  }
+
+  //Gets a list of books from the database
   getBookData():Observable<IBook[]>
   {
     //Connect to the db

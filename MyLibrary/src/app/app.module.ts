@@ -12,6 +12,7 @@ import { BookComponent } from './book/book.component';
 import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import {AngularFireModule} from '@angular/fire/compat';
 import {environment} from 'src/environments/environment.prod';
+import { OpenLibraryAPIService } from './services/open-library-api.service';
 
 @NgModule({
   declarations: [

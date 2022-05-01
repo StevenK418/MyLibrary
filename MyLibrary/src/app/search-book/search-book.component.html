@@ -6,16 +6,26 @@
         <div class="col-12 justify-content-center">
             <div class="input-group">
                 <div class="col-sm-6 col-12 m-2">
-                    <label for="title" class="form-label">Title</label>
-                    <input type="text" id="title" class="form-control">
+                    <label for="title" class="form-label" >Title</label>
+                    <input type="text" id="title" class="form-control" #title>
                 </div>
                 <div class="col-sm-5 col-12 m-2">
                     <label for="isbn" class="form-label">ISBN</label>
-                    <input type="text" id="isbn" class="form-control">
+                    <input type="text" id="isbn" class="form-control" #isbn>
                 </div>
             </div>
-            <button class="btn btn-primary m-3">Search</button>
+            <button class="btn btn-primary m-3" (click)="getBooksDetails(title.value)">Search</button>
+            <button class="btn btn-primary m-3" (click)="getBookDetailsByIsbn(isbn.value)">ISBN Search</button>
         </div>
     </form>
 </div>
+<ul style="list-style-type: none;">
+    <li>{{currentBook?.title}}</li>
+    <li>{{currentBook?.description}}</li>
+    <li>{{currentBook?.author}}</li>
+    <li>{{currentBook?.isbn}}</li>
+    <li>{{currentBook?.yearPublished}}</li>
+    <li><img src="{{currentBook?.coverArt}}"/></li>
+</ul>
+<app-display-book></app-display-book>
 </div>
