@@ -24,13 +24,11 @@ export class RecentSearchesApiService {
    //Gets a list of books from the database
    getSearchedBookData():Observable<IBook[]>
    {
-     debugger
      //Connect to the db
      this.searchedBooksData = this.recentSearchesDataCollection.valueChanges({idField:`id`});
      this.searchedBooksData.subscribe(
        data=> console.log("getBooksData" + JSON.stringify(data))
      )
-     debugger
      //Return the book data from the database
      return this.searchedBooksData;
    }

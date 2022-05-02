@@ -1,5 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -14,11 +13,7 @@ import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import {AngularFireModule} from '@angular/fire/compat';
 import {environment} from 'src/environments/environment.prod';
 import { MyFavouritesComponent } from './my-favourites/my-favourites.component';
-
-// Import library module
-import { NgxSpinner, NgxSpinnerModule } from "ngx-spinner";
 import { RecentSearchesComponent } from './recent-searches/recent-searches.component';
-
 
 @NgModule({
   declarations: [
@@ -34,12 +29,8 @@ import { RecentSearchesComponent } from './recent-searches/recent-searches.compo
     FontAwesomeModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
-    BrowserAnimationsModule,
-    NgxSpinnerModule,
+    AngularFirestoreModule
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [NgxSpinnerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

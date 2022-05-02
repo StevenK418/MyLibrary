@@ -25,7 +25,7 @@ export class SearchBookComponent implements OnInit
   constructor(private _openLibraryService:OpenLibraryAPIService, private _RecentSearchAPIsService:RecentSearchesApiService){}
 
   ngOnInit(){
-    
+     
   }
 
   //Test Code
@@ -46,6 +46,7 @@ export class SearchBookComponent implements OnInit
         },
         error => this.errorMessage = <any>error
       );
+      //Add the newly searched book to the db
       this._RecentSearchAPIsService.addBookData(this.currentBook);
       return false;
   }

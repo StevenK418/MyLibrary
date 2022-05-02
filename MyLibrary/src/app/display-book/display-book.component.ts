@@ -17,6 +17,6 @@ export class DisplayBookComponent implements OnInit {
 
   ngOnInit()
   {
-    //this._bookAPIService.getBookData().subscribe(booksData => {this.booksData = booksData});
+  
   }
 }

@@ -12,11 +12,14 @@ export class MyFavouritesComponent implements OnInit {
 
   reviewsData?:IReviewedBook[];
   
-  constructor(private _bookAPIService:BookApiService) {}
+  constructor(private _bookAPIService:BookApiService) 
+  {
+    
+  }
 
   ngOnInit()
   {
-     this._bookAPIService.getBookData().subscribe(reviewsData => {this.reviewsData = reviewsData});
+    this._bookAPIService.getBookData().subscribe(bookData => {this.reviewsData = bookData});
   }
 
   deleteBook(bookId:string)

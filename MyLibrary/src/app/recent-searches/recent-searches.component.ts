@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit  } from '@angular/core';
 import { IBook } from '../interfaces/book';
 import { RecentSearchesApiService } from '../services/recent-searches-api.service';
 
@@ -8,14 +8,20 @@ import { RecentSearchesApiService } from '../services/recent-searches-api.servic
   styleUrls: ['./recent-searches.component.css'],
   providers: [RecentSearchesApiService]
 })
-export class RecentSearchesComponent implements OnInit {
 
-  recentSearches!:IBook[];
+export class RecentSearchesComponent implements OnInit, AfterViewInit  {
+
+  recentSearches?:IBook[];
 
   constructor(private _recentSearchAPIService: RecentSearchesApiService) { }
 
   ngOnInit()
   {
     this._recentSearchAPIService.getSearchedBookData().subscribe(recentSearchData => {this.recentSearches = recentSearchData});
+  }
+
+  ngAfterViewInit()
+  {
+    //this._recentSearchAPIService.getSearchedBookData().subscribe(recentSearchData => {this.recentSearches = recentSearchData});
   }
 }
