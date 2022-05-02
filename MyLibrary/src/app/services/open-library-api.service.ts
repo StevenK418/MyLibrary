@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import {catchError,tap} from 'rxjs/operators';
@@ -8,12 +8,18 @@ import { __generator } from 'tslib';
 @Injectable({
   providedIn: 'root'
 })
-export class OpenLibraryAPIService {
+export class OpenLibraryAPIService implements OnInit
+{
 
   private _siteUrl="https://openlibrary.org/search.json?q="
   private _isbnSearchURL="https://openlibrary.org/isbn/";
 
   constructor(private _http:HttpClient) {}
+
+  ngOnInit()
+  {
+    this.getBookData("Short");
+  }
 
   //Gets a list of books of a given title from the api
   getBookData(bookTitle: string):Observable<IBookAPI>

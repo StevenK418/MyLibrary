@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { OpenLibraryAPIService } from '../services/open-library-api.service';
+import { RecentSearchesApiService } from '../services/recent-searches-api.service';
 import { Book, IBook, IBookAPI} from '../interfaces/book';
 
 @Component({
   selector: 'app-search-book',
   templateUrl: './search-book.component.html',
   styleUrls: ['./search-book.component.css'],
-  providers: [OpenLibraryAPIService]
+  providers: [
+                [OpenLibraryAPIService],
+                [RecentSearchesApiService]
+              ]
 })
 
 export class SearchBookComponent implements OnInit 
@@ -18,7 +22,7 @@ export class SearchBookComponent implements OnInit
   currentBook!:IBook;
 
   //Test API code
-  constructor(private _openLibraryService:OpenLibraryAPIService){}
+  constructor(private _openLibraryService:OpenLibraryAPIService, private _RecentSearchAPIsService:RecentSearchesApiService){}
 
   ngOnInit(){
     
@@ -42,6 +46,7 @@ export class SearchBookComponent implements OnInit
         },
         error => this.errorMessage = <any>error
       );
+      this._RecentSearchAPIsService.addBookData(this.currentBook);
       return false;
   }
 

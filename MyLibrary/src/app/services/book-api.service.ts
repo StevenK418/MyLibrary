@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
@@ -11,19 +11,24 @@ import { NgxSpinnerService } from "ngx-spinner";
 
 @Injectable()
 
-export class BookApiService {
+export class BookApiService implements OnInit{
 
   booksDataCollection:AngularFirestoreCollection<IReviewedBook>;
 
   booksData?:Observable<IReviewedBook[]>;
-
-  allBooksData?:IReviewedBook[];
 
   errorMessage?:string;
 
   constructor(private _http:HttpClient, private _afs:AngularFirestore, private spinner:NgxSpinnerService) 
   { 
     this.booksDataCollection = _afs.collection<IReviewedBook>("books_data");
+  }
+
+  //TODO: Testing page load favourites issue
+  ngOnInit()
+  {
+    this.booksData = this.getBookData();  
+    debugger
   }
 
   //Adds a new book to the database

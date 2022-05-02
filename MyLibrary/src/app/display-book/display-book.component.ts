@@ -9,9 +9,7 @@ import { IBook } from '../interfaces/book';
   providers: [BookApiService]
 })
 export class DisplayBookComponent implements OnInit {
-  //Original code
-  //@Input() booksData?:IBook[];
-
+  
   //Testing code
   @Input() bookData!:IBook;
 

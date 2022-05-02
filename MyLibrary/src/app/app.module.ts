@@ -13,11 +13,11 @@ import { BookComponent } from './book/book.component';
 import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import {AngularFireModule} from '@angular/fire/compat';
 import {environment} from 'src/environments/environment.prod';
-import { OpenLibraryAPIService } from './services/open-library-api.service';
 import { MyFavouritesComponent } from './my-favourites/my-favourites.component';
 
 // Import library module
 import { NgxSpinner, NgxSpinnerModule } from "ngx-spinner";
+import { RecentSearchesComponent } from './recent-searches/recent-searches.component';
 
 
 @NgModule({
@@ -26,7 +26,8 @@ import { NgxSpinner, NgxSpinnerModule } from "ngx-spinner";
     DisplayBookComponent,
     SearchBookComponent,
     BookComponent,
-    MyFavouritesComponent
+    MyFavouritesComponent,
+    RecentSearchesComponent
   ],
   imports: [
     BrowserModule,

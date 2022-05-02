@@ -1,17 +1,21 @@
-<h1>My Favourites</h1>
-<div class="container">
-    <div class="row" >
-        <div class="col-12 col-md-4" *ngFor="let review of reviewsData">
-            <img src="{{review.coverArt}}" class="img-fluid img-thumbnail" alt="Front cover of {{review.title}}"/>
-            <h2 class="fw-bold">{{review.title}}</h2>
-            <p><span class="fw-bold">Author:  </span>{{review.author}}</p>
-            <p><span class="fw-bold">Published:  </span>{{review.yearPublished}}</p>
-            <p>{{review.description | slice:1}}</p>
-            <p><span class="fw-bold">Rating:  </span>{{review.rating}}</p>
-            <h3 class="fw-bold">Review:</h3>
-            <p>{{review.review}}</p>
-            <button class="btn btn-warning" (click)="deleteBook(review.id!)">Remove</button>
-            <button class="btn btn-primary m-3">Edit</button>
+<div class="container-fluid p-8 bg-dark text-white">
+    <h2 class="m-3 mb-5 text-decoration-underline">My Favourites</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4" *ngFor="let review of reviewsData">
+                <div ng-if="review">
+                    <img ng-show="review.coverArt" src="{{review.coverArt}}" width="60%" class="img-fluid img-thumbnail" alt="Front cover of {{review.title}}"/>
+                    <h2 class="fw-bold">{{review.title}}</h2>
+                    <p><span class="fw-bold">Author:  </span>{{review.author}}</p>
+                    <p><span class="fw-bold">Published:  </span>{{review.yearPublished}}</p>
+                    <p>{{review.description | slice:1}}</p>
+                    <p><span class="fw-bold">Rating:  </span>{{review.rating}}</p>
+                    <p class="fw-bold">Review:</p>
+                    <p>{{review.review}}</p>
+                    <button class="btn btn-warning" (click)="deleteBook(review.id!)">Remove</button>
+                    <button class="btn btn-primary m-3">Edit</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

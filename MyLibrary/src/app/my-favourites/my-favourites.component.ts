@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { BookApiService } from '../services/book-api.service';
 import { IReviewedBook } from '../interfaces/reviewedBook';
 
@@ -16,7 +16,7 @@ export class MyFavouritesComponent implements OnInit {
 
   ngOnInit()
   {
-    this._bookAPIService.getBookData().subscribe(reviewsData => {this.reviewsData = reviewsData});
+     this._bookAPIService.getBookData().subscribe(reviewsData => {this.reviewsData = reviewsData});
   }
 
   deleteBook(bookId:string)

@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BookApiService } from '../services/book-api.service';
-import { ReviewApiService } from '../services/review-api.service';
 import { IBook, Book } from '../interfaces/book';
-import { IReview, Review } from '../interfaces/review';
 import { IReviewedBook, ReviewedBook } from '../interfaces/reviewedBook';
 
 @Component({
@@ -14,11 +12,9 @@ import { IReviewedBook, ReviewedBook } from '../interfaces/reviewedBook';
 
 export class BookComponent implements OnInit {
 
-
-  //booksData?:IBook[];
   @Input() bookData!:IBook;
 
-  constructor(private _bookAPIService:BookApiService, private _reviewAPIService:ReviewApiService) { }
+  constructor(private _bookAPIService:BookApiService) { }
   
   ngOnInit(){
   }

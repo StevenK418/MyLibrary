@@ -1,0 +1,59 @@
+<!-- <div class="container-fluid p-8">
+    <h2 class="m-3 mb-5 text-decoration-underline">Recent Searches</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4" *ngFor="let search of recentSearches">
+                <img ng-show="review.coverArt" src="{{search.coverArt}}" width="60%" class="img-fluid" alt="Front cover of {{search.title}}"/>
+                <h2 class="fw-bold">{{search.title}}</h2>
+                <p><span class="fw-bold">Author:  </span>{{search.author}}</p>
+                <p><span class="fw-bold">Published:  </span>{{search.yearPublished}}</p>
+                <p>{{search.description | slice:1}}</p>
+                <button class="btn btn-warning">Add To MyFavourites</button>
+            </div>
+        </div>
+    </div>
+</div>  -->
+
+<section class="pt-5 pb-5">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6">
+                <h2 class="m-3 mb-5 text-decoration-underline">Recent Searches</h2>
+            </div>
+            <div class="col-6 text-right">
+                <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" >
+                            <div class="row">
+                                <div class="col-md-4 mb-3" *ngFor="let search of recentSearches | slice:0:3; let i=index">
+                                    <div class="card">
+                                        <img class="img-fluid" width="40%" alt="100%x280" src="{{search.coverArt}}">
+                                        <div class="card-body">
+                                            <h4 class="card-title">{{search.title}}</h4>
+                                            <p class="card-text">{{search.description}}</p>
+                                            <p><span class="fw-bold">Author:  </span>{{search.author}}</p>
+                                            <p><span class="fw-bold">Published:  </span>{{search.yearPublished}}</p>
+                                            <p>{{search.description | slice:1}}</p>
+                                            <button class="btn btn-warning">Add To MyFavourites</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{recentSearches[0].title}} 
+    
