@@ -15,16 +15,10 @@ export class SearchBookComponent implements OnInit
  
   errorMessage:any;
 
-  //Store all response objects in here
-  books?:IBook[];
-
   currentBook!:IBook;
 
   //Test API code
-  constructor(private _openLibraryService:OpenLibraryAPIService)
-  {
-      
-  }
+  constructor(private _openLibraryService:OpenLibraryAPIService){}
 
   ngOnInit(){
     

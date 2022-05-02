@@ -1,21 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { ReviewApiService } from '../services/review-api.service';
-import { Review, IReview } from '../interfaces/review';
+import { BookApiService } from '../services/book-api.service';
+import { IReviewedBook } from '../interfaces/reviewedBook';
 
 @Component({
   selector: 'app-my-favourites',
   templateUrl: './my-favourites.component.html',
-  styleUrls: ['./my-favourites.component.css']
+  styleUrls: ['./my-favourites.component.css'],
+  providers: [BookApiService]
 })
 export class MyFavouritesComponent implements OnInit {
 
-  reviewsData?:IReview[];
+  reviewsData?:IReviewedBook[];
   
-  constructor(private _reviewAPIService:ReviewApiService) {}
+  constructor(private _bookAPIService:BookApiService) {}
 
-  ngOnInit(): void 
+  ngOnInit()
   {
-    this._reviewAPIService.getreviewData().subscribe(reviewsData => {this.reviewsData = reviewsData});
+    this._bookAPIService.getBookData().subscribe(reviewsData => {this.reviewsData = reviewsData});
+  }
+
+  deleteBook(bookId:string)
+  {
+    this._bookAPIService.deleteBookData(bookId);
   }
 
 }
