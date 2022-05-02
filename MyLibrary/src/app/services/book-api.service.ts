@@ -4,29 +4,28 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 import {AngularFirestoreCollection, AngularFirestore} from "@angular/fire/compat/firestore";
-import { IBook, IBookAPI } from '../interfaces/book';
+import { IReviewedBook, ReviewedBook } from '../interfaces/reviewedBook';
 import { jsDocComment } from '@angular/compiler';
-
 
 @Injectable()
 
 export class BookApiService {
 
-  booksDataCollection:AngularFirestoreCollection<IBook>;
+  booksDataCollection:AngularFirestoreCollection<IReviewedBook>;
 
-  booksData?:Observable<IBook[]>;
+  booksData?:Observable<IReviewedBook[]>;
 
-  allBooksData?:IBook[];
+  allBooksData?:IReviewedBook[];
 
   errorMessage?:string;
 
   constructor(private _http:HttpClient, private _afs:AngularFirestore) 
   { 
-    this.booksDataCollection = _afs.collection<IBook>("books_data");
+    this.booksDataCollection = _afs.collection<IReviewedBook>("books_data");
   }
 
   //Adds a new book to the database
-  addBookData(book:IBook):void
+  addBookData(book:IReviewedBook):void
   {
       this.booksDataCollection.add(JSON.parse(JSON.stringify(book)));
   }
@@ -38,7 +37,7 @@ export class BookApiService {
   }
 
   //Gets a list of books from the database
-  getBookData():Observable<IBook[]>
+  getBookData():Observable<IReviewedBook[]>
   {
     //Connect to the db
     this.booksData = this.booksDataCollection.valueChanges({idField:`id`});

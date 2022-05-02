@@ -19,13 +19,13 @@
         </div>
     </form>
 </div>
-<ul style="list-style-type: none;">
+<!-- <ul style="list-style-type: none;">
     <li>{{currentBook?.title}}</li>
     <li>{{currentBook?.description}}</li>
     <li>{{currentBook?.author}}</li>
     <li>{{currentBook?.isbn}}</li>
     <li>{{currentBook?.yearPublished}}</li>
     <li><img src="{{currentBook?.coverArt}}"/></li>
-</ul>
-<app-display-book></app-display-book>
+</ul> -->
+<app-display-book [bookData]="currentBook"></app-display-book>
 </div>

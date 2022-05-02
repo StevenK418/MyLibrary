@@ -2,18 +2,18 @@
 <div class="container-fluid">
     <div class="row">
       <div class="col-lg-2 mt-5 p-sm-20">
-        <img src="{{bookData?.coverArt}}"  class="img-fluid img-thumbnail"  alt=""/>
+        <img src="{{bookData.coverArt}}"  class="img-fluid img-thumbnail"  alt=""/>
       </div>
       <div class="col-lg-6 p-5 pt-0 mt-5">
-        <h1>Title: {{bookData?.title}}</h1>
-        <p><span class="fw-bold">Author: </span> {{bookData?.author}}</p>
-        <p><span class="fw-bold">Publisher</span> {{bookData?.publisher}}</p>
+        <h1>Title: {{bookData.title}}</h1>
+        <p><span class="fw-bold">Author: </span> {{bookData.author}}</p>
+        <p><span class="fw-bold">Publisher</span> {{bookData.publisher}}</p>
         <p class="fw-bold">Description:</p>
         <p>
-          {{bookData?.description}}
+          {{bookData.description}}
         </p>
-        <p><span class="fw-bold">Year Published:</span> {{bookData?.yearPublished}}</p>
-        <p><span class="fw-bold">ISBN:</span> {{bookData?.isbn}}</p>
+        <p><span class="fw-bold">Published:</span> {{bookData.yearPublished}}</p>
+        <p><span class="fw-bold">ISBN:</span> {{bookData.isbn}}</p>
       </div>
       <div class="col-lg-4 bg-light m-0 p-5">
         <form>
@@ -39,7 +39,7 @@
             </div>
           </fieldset>
           <div class="col-5 mt-3">
-            <button type="button" class="btn btn-primary" (click)="addReviewToDatabase(bookData.title, review.value, rating.value)">Submit</button>
+            <button type="button" class="btn btn-primary" (click)="addBookToDatabase(review.value, rating.value)">Add to favourites</button>
           </div>
         </form>
       </div>

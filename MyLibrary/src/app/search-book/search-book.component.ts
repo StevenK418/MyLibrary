@@ -18,7 +18,7 @@ export class SearchBookComponent implements OnInit
   //Store all response objects in here
   books?:IBook[];
 
-  currentBook?:IBook;
+  currentBook!:IBook;
 
   //Test API code
   constructor(private _openLibraryService:OpenLibraryAPIService)

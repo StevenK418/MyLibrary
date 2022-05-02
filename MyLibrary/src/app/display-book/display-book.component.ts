@@ -9,13 +9,16 @@ import { IBook } from '../interfaces/book';
   providers: [BookApiService]
 })
 export class DisplayBookComponent implements OnInit {
+  //Original code
+  //@Input() booksData?:IBook[];
 
-  booksData?:IBook[];
+  //Testing code
+  @Input() bookData!:IBook;
 
   constructor(private _bookAPIService:BookApiService) { }
 
   ngOnInit()
   {
-    this._bookAPIService.getBookData().subscribe(booksData => {this.booksData = booksData});
+    //this._bookAPIService.getBookData().subscribe(booksData => {this.booksData = booksData});
   }
 }
