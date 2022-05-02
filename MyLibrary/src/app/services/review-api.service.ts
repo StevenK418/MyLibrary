@@ -27,6 +27,7 @@ export class ReviewApiService {
    addreviewData(review:IReview):void
    {
        this.reviewsDataCollection.add(JSON.parse(JSON.stringify(review)));
+       console.log("Review successfully added!")
    }
 
    //Deletes a review of a given id from the database

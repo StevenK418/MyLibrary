@@ -39,7 +39,7 @@
             </div>
           </fieldset>
           <div class="col-5 mt-3">
-            <button type="button" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-primary" (click)="addReviewToDatabase(bookData.title, review.value, rating.value)">Submit</button>
           </div>
         </form>
       </div>
