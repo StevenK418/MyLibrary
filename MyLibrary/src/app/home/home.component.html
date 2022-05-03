@@ -1,0 +1,12 @@
+<p>home works!</p>
+<button routerLink="/signup">Signup</button>
+<button routerLink="/login">Login</button>
+<button routerLink="/dashboard">Dashboard</button>
+
+<div *ngIf="(_afAuth.user | async)">
+        User is loggedin!
+        <button (click)="logOut()">Logout</button>
+</div>
+<div *ngIf="!(_afAuth.user | async)">
+  User is not logged in!
+</div>
