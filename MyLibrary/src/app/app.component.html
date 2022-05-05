@@ -1,18 +1,25 @@
-<!-- Navbar | Header -->
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
   <div class="container-fluid">
-    <div class="row">
-        <a class="navbar-brand" href="#">
-          <h2><fa-icon [icon]="faBook" size="1x"></fa-icon> My Library</h2>
-        </a>
-        <!-- //Show username -->
-        <div *ngIf="_authService.user | async as user;">
-          Hello {{user.displayName}}
-         </div>
-      </div>
+    <a class="navbar-brand" href="#">
+      <h2><fa-icon [icon]="faBook" size="1x"></fa-icon> My Library</h2>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+          <div *ngIf="(_authService.user | async)">
+            <button class="btn btn-secondary" (click)="logOut()">Logout</button>
+          </div>
+      </form>
+    </div>
   </div>
 </nav>
-<!-- END of Navbar | Header -->
 <router-outlet></router-outlet>
 <footer class="footer footer-fixed text-center p-3">
   <small>&copy; 2023 MyLibrary</small>

@@ -18,7 +18,7 @@ export class RecentSearchesApiService {
   constructor(private _http:HttpClient, private _afs:AngularFirestore)
   {
     //TODO: orderBy clause needs work. Deploying this as is is ill-advised.
-    this.recentSearchesDataCollection = _afs.collection<IBook>("recent_search_data", ref => ref.orderBy('dateAdded', 'asc'));
+    this.recentSearchesDataCollection = _afs.collection<IBook>("recent_search_data", ref => ref.orderBy('dateAdded', 'desc'));
   }
 
    //Gets a list of books from the database

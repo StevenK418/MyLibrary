@@ -1,17 +1,23 @@
-<div class="container">
+<div class="container mb-3">
   <h2>Login</h2>
-  <button class="btn-primary" routerLink="/home">Home</button>
-    <form [formGroup]="loginForm" (ngSubmit)="loginUser(email.value, password.value)">
-
-              <label class="form-label">Email</label>
-              <input formControlName="email" class="form-control" type="email"  placeholder="Email" #email>
-
-              <label class="form-label">Password</label>
-              <input autocomplete="off" class="form-control" formControlName="password" type="password"  placeholder="Password" #password>
-
-              <div *ngIf="firebaseErrorMessage != ''" class="error-style">
-                  <span>{{ firebaseErrorMessage }}</span>
-              </div>
-      <button type="submit" class="btn-primary mb-3">Login</button>
+  <!-- Login Form -->
+    <form [formGroup]="loginForm" class="form" (ngSubmit)="loginUser(email.value, password.value)">
+      <!-- Email -->
+      <label class="form-label">Email</label>
+      <input formControlName="email" class="form-control" type="email"  placeholder="Email" #email>
+      <!-- Password -->
+      <label class="form-label">Password</label>
+      <input autocomplete="off" class="form-control" formControlName="password" type="password"  placeholder="Password" #password>
+      <!-- Error Message Field -->
+      <div *ngIf="firebaseErrorMessage != ''" class="error-style">
+          <span>{{ firebaseErrorMessage }}</span>
+      </div>
+      <button type="submit" class="btn btn-primary mt-3 mb-3">Login</button>
   </form>
+  <!-- End of Login Form -->
+  <div class="container">
+    <div class="row">
+     <p>Not registered? Create an account: <a href="/signup" routerLink="/signup">Signup</a></p>
+    </div>
+  </div>
 </div>

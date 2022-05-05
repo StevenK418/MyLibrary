@@ -11,10 +11,13 @@ import { IReviewedBook } from '../interfaces/reviewedBook';
 export class MyFavouritesComponent implements OnInit {
 
   reviewsData?:IReviewedBook[];
-  
-  constructor(private _bookAPIService:BookApiService) 
+
+  show?:boolean;
+  selectedID?:number;
+
+  constructor(private _bookAPIService:BookApiService)
   {
-    
+
   }
 
   ngOnInit()
@@ -25,6 +28,33 @@ export class MyFavouritesComponent implements OnInit {
   deleteBook(bookId:string)
   {
     this._bookAPIService.deleteBookData(bookId);
+  }
+
+   //Adds the book, along with the review and rating to the database
+   addBookToDatabase(bookObject:IReviewedBook, rating:string, review:string)
+   {
+      //  //Construct a new book
+      //  let book:IReviewedBook = new ReviewedBook(
+      //                              bookObject.title,
+      //                              bookObject.author,
+      //                              bookObject.publisher,
+      //                              bookObject.yearPublished,
+      //                              bookObject.description,
+      //                              bookObject.isbn,
+      //                              bookObject.coverArt,
+      //                              rating,
+      //                              review
+      //  );
+      //  //Send this book to the API service to be added to the DB.
+      //  this._bookAPIService.addBookData(book);
+   }
+
+
+  //Shows a specific form
+  showForm(buttonId:number)
+  {
+      this.selectedID = buttonId;
+      this.show = !this.show;
   }
 
 }

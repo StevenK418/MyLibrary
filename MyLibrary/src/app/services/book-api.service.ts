@@ -1,10 +1,8 @@
 import { Injectable, OnInit } from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
-
 import {AngularFirestoreCollection, AngularFirestore} from "@angular/fire/compat/firestore";
-import { IReviewedBook, ReviewedBook } from '../interfaces/reviewedBook';
+import { IReviewedBook} from '../interfaces/reviewedBook';
 
 
 @Injectable()
@@ -19,13 +17,12 @@ export class BookApiService implements OnInit{
 
   constructor(private _http:HttpClient, private _afs:AngularFirestore)
   {
-    this.booksDataCollection = _afs.collection<IReviewedBook>("books_data", ref => ref.orderBy('title', 'desc'));
+    this.booksDataCollection = _afs.collection<IReviewedBook>("books_data", ref => ref.orderBy('title', 'asc'));
   }
 
-  //TODO: Testing page load favourites issue
   ngOnInit()
   {
-    //this.booksData = this.getBookData();
+
   }
 
   //Adds a new book to the database

@@ -1,20 +1,21 @@
 <div class="container">
   <h2>Sign Up</h2>
-  <button class="btn-primary" routerLink="/home">Home</button>
-    <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+    <form [formGroup]="signupForm" class="form" (ngSubmit)="signUp()">
+              <!-- Name -->
               <label class="form-label">Full Name</label>
               <input autocomplete="off" class="form-control" formControlName="displayName" type="text"  placeholder="Display Name">
-
+              <!-- Password -->
               <label class="form-label">Email</label>
               <input formControlName="email" class="form-control" type="email"  placeholder="Email">
-
+              <!-- Password -->
               <label class="form-label">Password</label>
               <input autocomplete="off" class="form-control" formControlName="password" type="password"  placeholder="Password">
-
+              <!-- Error message field -->
               <div *ngIf="firebaseErrorMessage != ''" class="error-style">
                   <span>{{ firebaseErrorMessage }}</span>
               </div>
-      <button type="submit" class="btn-primary mb-3">Signup</button>
+      <button type="submit" class="btn btn-primary mt-3 mb-3">Signup</button>
   </form>
+  <a href="/login" routerLink="/login">Login</a>
 </div>
 

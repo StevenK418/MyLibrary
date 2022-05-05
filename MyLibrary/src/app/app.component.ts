@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { faBook } from '@fortawesome/free-solid-svg-icons';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -13,16 +14,17 @@ export class AppComponent {
 
   userName!:string;
 
-
-  constructor(public _authService:AngularFireAuth)
+  constructor(public _authService:AngularFireAuth, public _afsAuthService:AuthService)
   {
-    //this.userName = _authService.user;
 
   }
 
-  logOut():void{
+  //Logs the user out
+  logOut():void
+  {
     this._authService.signOut();
   }
+
 }
 
 

@@ -1,23 +1,23 @@
 <!-- Search section -->
-<div class="container-fluid p-3 bg-dark text-white">
-<div class="row justify-content-center p-5">
-    <form class="form-horizontal">
-    <legend class="text-decoration-underline">Search</legend>
-        <div class="col-12 justify-content-center">
-            <div class="input-group">
-                <div class="col-sm-6 col-12 m-2">
-                    <label for="title" class="form-label" >Title</label>
-                    <input type="text" id="title" class="form-control" #title>
-                </div>
-                <div class="col-sm-5 col-12 m-2">
-                    <label for="isbn" class="form-label">ISBN</label>
-                    <input type="text" id="isbn" class="form-control" #isbn>
-                </div>
-            </div>
-            <button class="btn btn-primary m-3" (click)="getBooksDetails(title.value)">Search</button>
-            <button class="btn btn-primary m-3" (click)="getBookDetailsByIsbn(isbn.value)">ISBN Search</button>
-        </div>
-    </form>
-</div>
-<app-display-book [bookData]="currentBook"></app-display-book>
+<div class="container-fluid p-3 bg-dark text-white mb-3">
+  <div class="row justify-content-center p-5">
+      <form class="form-horizontal">
+      <legend class="text-decoration-underline">Search</legend>
+          <div class="col-12 justify-content-center">
+              <div class="input-group">
+                  <div class="col-sm-6 col-12 m-2">
+                      <label for="title" class="form-label" >Title</label>
+                      <input type="text" id="title" class="form-control" #title>
+                  </div>
+                  <div class="col-sm-5 col-12 m-2">
+                      <label for="isbn" class="form-label">ISBN</label>
+                      <input type="text" id="isbn" class="form-control" #isbn>
+                  </div>
+              </div>
+              <button class="btn btn-primary m-3" (click)="getBooksDetails(title.value)">Search</button>
+              <button class="btn btn-primary m-3" (click)="getBookDetailsByIsbn(isbn.value)">ISBN Search</button>
+          </div>
+      </form>
+  </div>
+  <app-display-book [bookData]="currentBook"></app-display-book>
 </div>

@@ -1,19 +1,48 @@
-<div class="container-fluid p-8 bg-dark text-white">
+<div class="container-fluid p-8 bg-dark text-white mb-3">
     <h2 class="m-3 mb-5 text-decoration-underline">My Favourites</h2>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-4" *ngFor="let review of reviewsData">
+            <div class="col-12 col-md-4" *ngFor="let reviewedBook of reviewsData let i=index">
                 <div ng-if="review">
-                    <img ng-show="review.coverArt" src="{{review.coverArt}}" width="60%" class="img-fluid img-thumbnail" alt="Front cover of {{review.title}}"/>
-                    <h2 class="fw-bold">{{review.title}}</h2>
-                    <p><span class="fw-bold">Author:  </span>{{review.author}}</p>
-                    <p><span class="fw-bold">Published:  </span>{{review.yearPublished}}</p>
-                    <p>{{review.description | slice:1}}</p>
-                    <p><span class="fw-bold">Rating:  </span>{{review.rating}}</p>
+                    <img ng-show="review.coverArt" src="{{reviewedBook.coverArt}}" width="60%" class="img-fluid img-thumbnail" alt="Front cover of {{reviewedBook.title}}"/>
+                    <h2 class="fw-bold">{{reviewedBook.title}}</h2>
+                    <p><span class="fw-bold">Author:  </span>{{reviewedBook.author}}</p>
+                    <p><span class="fw-bold">Published:  </span>{{reviewedBook.yearPublished}}</p>
+                    <p>{{reviewedBook.description | slice:1}}</p>
+                    <p><span class="fw-bold">Rating:  </span>{{reviewedBook.rating}}</p>
                     <p class="fw-bold">Review:</p>
-                    <p>{{review.review}}</p>
-                    <button class="btn btn-warning" (click)="deleteBook(review.id!)">Remove</button>
-                    <button class="btn btn-primary m-3">Edit</button>
+                    <p>{{reviewedBook.review}}</p>
+                    <button class="btn btn-warning" (click)="deleteBook(reviewedBook.id!)">Remove</button>
+                    <button class="btn btn-primary m-3" id="{{i}}" (click)="showForm(i)">Edit</button>
+                </div>
+                <div class="favourites-Form" *ngIf="show && selectedID === i">
+                  <hr>
+                  <!-- Review Form -->
+                  <form class="mb-2 p-2" >
+                    <fieldset>
+                      <legend class="text-decoration-underline text-white">Edit Review</legend>
+                      <!-- My rating | dropdown -->
+                      <div class="input-group">
+                        <label class="input-group-text" for="rating">My Rating</label>
+                        <select class="form-select" name="rating" id="rating" #rating>
+                            <option selected>Choose...</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                      </div>
+                      <!-- My review | Textarea -->
+                      <div class="input-group mt-2">
+                        <span class="input-group-text">My Review</span>
+                        <textarea class="form-control" name="review" id="review" rows="2" aria-label="With textarea" #review></textarea>
+                      </div>
+                      <button type="button" class="btn btn-primary mt-2" (click)="[addBookToDatabase(reviewedBook, rating.value, review.value), showForm(i)]">Add</button>
+                    </fieldset>
+                </form>
+                <!-- End review form -->
+                <hr>
                 </div>
             </div>
         </div>

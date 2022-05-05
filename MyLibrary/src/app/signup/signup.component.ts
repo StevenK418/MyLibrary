@@ -3,7 +3,6 @@ import { AuthService } from '../services/auth.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -20,24 +19,27 @@ export class SignupComponent implements OnInit {
       this.firebaseErrorMessage = '';
   }
 
-  ngOnInit(): void {
-    this.signupForm = new FormGroup({
+  ngOnInit(): void
+  {
+    this.signupForm = new FormGroup(
+    {
       'displayName': new FormControl('', Validators.required),
       'email': new FormControl('',[Validators.required, Validators.email]),
       'password': new FormControl('', Validators.required)
     });
   }
 
+  //Signs the user up using the signup
   signUp()
   {
     console.log('signUp Method entered!');
-    debugger
     if(this.signupForm.invalid)
     {
       return;
     }
 
-    this._afsAuthService.signUpUser(this.signupForm.value).then((result)=> {
+    this._afsAuthService.signUpUser(this.signupForm.value).then((result)=>
+    {
       if(result==null)
       {
         this._router.navigate(['/dashboard']);
@@ -47,7 +49,5 @@ export class SignupComponent implements OnInit {
           this.firebaseErrorMessage = result.message;
       }
     }).catch(()=>{});
-
   }
-
 }
