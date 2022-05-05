@@ -26,18 +26,12 @@ export class SignupComponent implements OnInit {
       'email': new FormControl('',[Validators.required, Validators.email]),
       'password': new FormControl('', Validators.required)
     });
-    // this.signupForm = new FormGroup({
-    //   'displayName': new FormControl(''),
-    //   'email': new FormControl(''),
-    //   'password': new FormControl(''),
-
-    // });
   }
 
   signUp()
   {
-    console.log('signUp Method enetered!');
-    debugger;
+    console.log('signUp Method entered!');
+    debugger
     if(this.signupForm.invalid)
     {
       return;

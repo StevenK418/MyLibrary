@@ -1,1 +1,17 @@
-<p>login works!</p>
+<div class="container">
+  <h2>Login</h2>
+  <button class="btn-primary" routerLink="/home">Home</button>
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser(email.value, password.value)">
+
+              <label class="form-label">Email</label>
+              <input formControlName="email" class="form-control" type="email"  placeholder="Email" #email>
+
+              <label class="form-label">Password</label>
+              <input autocomplete="off" class="form-control" formControlName="password" type="password"  placeholder="Password" #password>
+
+              <div *ngIf="firebaseErrorMessage != ''" class="error-style">
+                  <span>{{ firebaseErrorMessage }}</span>
+              </div>
+      <button type="submit" class="btn-primary mb-3">Login</button>
+  </form>
+</div>

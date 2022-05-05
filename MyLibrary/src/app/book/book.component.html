@@ -2,7 +2,7 @@
 <div class="container-fluid">
     <div class="row" *ngIf="bookData">
       <div class="col-lg-2 mt-5 p-sm-20">
-        <img src="{{bookData.coverArt}}"  class="img-fluid img-thumbnail"  alt=""/>
+        <img src="{{bookData.coverArt}}"  class="img-fluid img-thumbnail"  alt="Cover of {{bookData.title}}"/>
       </div>
       <div class="col-lg-6 p-5 pt-0 mt-5">
         <h1>Title: {{bookData.title}}</h1>

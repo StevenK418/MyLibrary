@@ -2,55 +2,46 @@
     <h2 class="m-3 mb-5 text-decoration-underline">Recent Searches</h2>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-4" *ngFor="let search of recentSearches">
-                <img ng-show="review.coverArt" src="{{search.coverArt}}" width="60%" class="img-fluid" alt="Front cover of {{search.title}}"/>
+            <div class="col-12 col-md-4 text-center h-25" *ngFor="let search of recentSearches | slice:0:3; let i=index">
+              <div class="text-center">
+                <img ng-show="review.coverArt" src="{{search.coverArt}}" width="60%" class="img-fluid m-2" alt="Front cover of {{search.title}}"/>
+              </div>
                 <h2 class="fw-bold">{{search.title}}</h2>
                 <p><span class="fw-bold">Author:  </span>{{search.author}}</p>
                 <p><span class="fw-bold">Published:  </span>{{search.yearPublished}}</p>
-                <p>{{search.description | slice:1}}</p>
-                <button class="btn btn-warning">Add To MyFavourites</button>
-            </div>
-        </div>
-    </div>
-</div> 
-<!-- <section class="pt-5 pb-5">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-6">
-                <h2 class="m-3 mb-5 text-decoration-underline">Recent Searches</h2>
-            </div>
-            <div class="col-6 text-right">
-                <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
-                    <i class="fa fa-arrow-left"></i>
-                </a>
-                <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
-                    <i class="fa fa-arrow-right"></i>
-                </a>
-            </div>
-            <div class="col-12">
-                <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active" >
-                            <div class="row">
-                                <div class="col-md-4 mb-3" *ngFor="let search of recentSearches | slice:0:3; let i=index">
-                                    <div class="card">
-                                        <img class="img-fluid" width="40%" alt="100%x280" src="{{search.coverArt}}">
-                                        <div class="card-body">
-                                            <h4 class="card-title">{{search.title}}</h4>
-                                            <p class="card-text">{{search.description}}</p>
-                                            <p><span class="fw-bold">Author:  </span>{{search.author}}</p>
-                                            <p><span class="fw-bold">Published:  </span>{{search.yearPublished}}</p>
-                                            <p>{{search.description | slice:1}}</p>
-                                            <button class="btn btn-warning">Add To MyFavourites</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <p>{{search.description | slice:3}}</p>
+                <button class="btn btn-warning" id="{{i}}"(click)="showForm(i)">{{show && selectedID === i ? 'Hide' : 'Add to favourites'}}</button>
+                <div class="favourites-Form" *ngIf="show && selectedID === i">
+                  <hr>
+                  <!-- Review Form -->
+                  <form class="mb-2 p-2" >
+                    <fieldset>
+                      <legend class="text-decoration-underline text-dark">Add to Favourites</legend>
+                      <!-- My rating | dropdown -->
+                      <!-- <label for="myRating">My Rating</label> -->
+                      <div class="input-group">
+                        <label class="input-group-text" for="rating">My Rating</label>
+                        <select class="form-select" name="rating" id="rating" #rating>
+                            <option selected>Choose...</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                      </div>
+                      <!-- My review | Textarea -->
+                      <div class="input-group mt-2">
+                        <span class="input-group-text">My Review</span>
+                        <textarea class="form-control" name="review" id="review" rows="2" aria-label="With textarea" #review></textarea>
+                      </div>
+                      <button type="button" class="btn btn-primary mt-2" (click)="addBookToDatabase(search, rating.value, review.value)">Add</button>
+                    </fieldset>
+                </form>
+                <!-- End review form -->
+                <hr>
                 </div>
             </div>
         </div>
     </div>
-</section> -->
-    
+</div>

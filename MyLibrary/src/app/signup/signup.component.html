@@ -1,5 +1,5 @@
-<p>signup works!</p>
 <div class="container">
+  <h2>Sign Up</h2>
   <button class="btn-primary" routerLink="/home">Home</button>
     <form [formGroup]="signupForm" (ngSubmit)="signUp()">
               <label class="form-label">Full Name</label>
@@ -14,7 +14,7 @@
               <div *ngIf="firebaseErrorMessage != ''" class="error-style">
                   <span>{{ firebaseErrorMessage }}</span>
               </div>
-      <button color="primary" class="btn-primary">Signup</button>
+      <button type="submit" class="btn-primary mb-3">Signup</button>
   </form>
 </div>
 

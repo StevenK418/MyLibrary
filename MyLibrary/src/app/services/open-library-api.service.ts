@@ -2,15 +2,15 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import {catchError,tap} from 'rxjs/operators';
-import { IBook, Book, IBookAPI} from '../interfaces/book';
+import {IBookAPI} from '../interfaces/book';
 import { __generator } from 'tslib';
+import { IISBNResult} from '../interfaces/ISBNResult';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OpenLibraryAPIService implements OnInit
 {
-
   private _siteUrl="https://openlibrary.org/search.json?q="
   private _isbnSearchURL="https://openlibrary.org/isbn/";
 
@@ -32,19 +32,18 @@ export class OpenLibraryAPIService implements OnInit
     catchError(this.handleError)
     );
   }
-  
+
   //Searches the api for a given isbn
-  getBookDataByIsbn(isbn?:string):Observable<IBookAPI>
+  getBookDataByIsbn(isbn?:string):Observable<IISBNResult>
   {
-    console.log(this._isbnSearchURL + isbn);
-    return this._http.get<IBookAPI>(this._isbnSearchURL + isbn + ".json")
+    console.log(this._isbnSearchURL + isbn + '.json');
+    return this._http.get<IISBNResult>(this._isbnSearchURL + isbn + ".json")
     .pipe(
       tap(data => console.log('Bookdata/error' + JSON.stringify(data))
     ),
     catchError(this.handleError)
     );
   }
-  
 
   //Handles any errors receieved in the response
   private handleError(err:HttpErrorResponse)

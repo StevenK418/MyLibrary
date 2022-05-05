@@ -22,8 +22,8 @@ export class ReviewedBook
     description:string;
     isbn:string;
     coverArt:string;
-    rating:string;
-    review:string
+    rating?:string;
+    review?:string
 
     constructor(title:string, author:string,  publisher:string, yearPublished:string, description:string, isbn:string, coverArt:string, rating:string, review:string)
     {

@@ -5,16 +5,16 @@
         <a class="navbar-brand" href="#">
           <h2><fa-icon [icon]="faBook" size="1x"></fa-icon> My Library</h2>
         </a>
+        <!-- //Show username -->
+        <div *ngIf="_authService.user | async as user;">
+          Hello {{user.displayName}}
+         </div>
       </div>
   </div>
 </nav>
 <!-- END of Navbar | Header -->
-<!-- Search section -->
-<app-search-book></app-search-book>
-<app-recent-searches></app-recent-searches>
-<app-my-favourites></app-my-favourites>
-<!-- END of Search section -->
+<router-outlet></router-outlet>
 <footer class="footer footer-fixed text-center p-3">
   <small>&copy; 2023 MyLibrary</small>
 </footer>
-<router-outlet></router-outlet>
+

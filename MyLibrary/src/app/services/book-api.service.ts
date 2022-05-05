@@ -17,15 +17,15 @@ export class BookApiService implements OnInit{
 
   errorMessage?:string;
 
-  constructor(private _http:HttpClient, private _afs:AngularFirestore) 
-  { 
-    this.booksDataCollection = _afs.collection<IReviewedBook>("books_data");
+  constructor(private _http:HttpClient, private _afs:AngularFirestore)
+  {
+    this.booksDataCollection = _afs.collection<IReviewedBook>("books_data", ref => ref.orderBy('title', 'desc'));
   }
 
   //TODO: Testing page load favourites issue
   ngOnInit()
   {
-    //this.booksData = this.getBookData();  
+    //this.booksData = this.getBookData();
   }
 
   //Adds a new book to the database
@@ -42,7 +42,7 @@ export class BookApiService implements OnInit{
 
   //Gets a list of books from the database
   getBookData():Observable<IReviewedBook[]>
-  { 
+  {
     //Connect to the db
     this.booksData = this.booksDataCollection.valueChanges({idField:`id`});
     this.booksData.subscribe(

@@ -1,7 +1,6 @@
 import { Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { Observable, throwError} from 'rxjs';
 
 import {AngularFirestoreCollection, AngularFirestore} from "@angular/fire/compat/firestore";
 import { IBook } from '../interfaces/book';
@@ -16,9 +15,10 @@ export class RecentSearchesApiService {
 
   errorMessage?:string;
 
-  constructor(private _http:HttpClient, private _afs:AngularFirestore) 
-  { 
-    this.recentSearchesDataCollection = _afs.collection<IBook>("recent_search_data");
+  constructor(private _http:HttpClient, private _afs:AngularFirestore)
+  {
+    //TODO: orderBy clause needs work. Deploying this as is is ill-advised.
+    this.recentSearchesDataCollection = _afs.collection<IBook>("recent_search_data", ref => ref.orderBy('dateAdded', 'asc'));
   }
 
    //Gets a list of books from the database

@@ -1,4 +1,4 @@
-import { AnimationTriggerNames } from "@angular/compiler";
+import { IISBNResult } from "./ISBNResult";
 
 export interface IBook
 {
@@ -10,7 +10,10 @@ export interface IBook
     description:string;
     isbn:string;
     coverArt:string;
+    dateAdded:number;
 }
+
+
 
 export interface IBookAPI
 {
@@ -39,8 +42,9 @@ export class Book
     description:string;
     isbn:string;
     coverArt:string;
-    
-    constructor(title:string, author:string,  publisher:string, yearPublished:string, description:string, isbn:string, coverArt:string)
+    dateAdded:number;
+
+    constructor(title:string, author:string,  publisher:string, yearPublished:string, description:string, isbn:string, coverArt:string, dateAdded:number)
     {
         this.title = title;
         this.author = author;
@@ -49,5 +53,6 @@ export class Book
         this.description = description;
         this.isbn = isbn;
         this.coverArt = coverArt;
+        this.dateAdded = dateAdded;
     }
 }
