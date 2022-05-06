@@ -28,7 +28,7 @@ export class BookComponent implements OnInit {
                                   this.bookData.author,
                                   this.bookData.publisher,
                                   this.bookData.yearPublished,
-                                  this.bookData.description[0],
+                                  this.bookData.description,
                                   this.bookData.isbn,
                                   this.bookData.coverArt,
                                   rating,

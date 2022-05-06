@@ -27,8 +27,9 @@ export class RecentSearchesApiService {
      //Connect to the db
      this.searchedBooksData = this.recentSearchesDataCollection.valueChanges({idField:`id`});
      this.searchedBooksData.subscribe(
-       data=> console.log("getBooksData" + JSON.stringify(data))
-     )
+       data=> console.log("getBooksData" + JSON.stringify(data, function(k, v) {
+        if (v === undefined) { return null; } return v;
+     })));
      //Return the book data from the database
      return this.searchedBooksData;
    }
@@ -36,7 +37,9 @@ export class RecentSearchesApiService {
    //Adds a new book to the database
   addBookData(book:IBook):void
   {
-      this.recentSearchesDataCollection.add(JSON.parse(JSON.stringify(book)));
+      this.recentSearchesDataCollection.add(JSON.parse(JSON.stringify(book, function(k, v) {
+        if (v === undefined) { return null; } return v;
+     })));
   }
 
   //Deletes a book of a given id from the database
