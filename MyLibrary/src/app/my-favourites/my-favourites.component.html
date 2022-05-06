@@ -8,7 +8,7 @@
                     <h2 class="fw-bold">{{reviewedBook.title}}</h2>
                     <p><span class="fw-bold">Author:  </span>{{reviewedBook.author}}</p>
                     <p><span class="fw-bold">Published:  </span>{{reviewedBook.yearPublished}}</p>
-                    <p>{{reviewedBook.description | slice:1}}</p>
+                    <p>{{reviewedBook.description}}</p>
                     <p><span class="fw-bold">Rating:  </span>{{reviewedBook.rating}}</p>
                     <p class="fw-bold">Review:</p>
                     <p>{{reviewedBook.review}}</p>
@@ -38,7 +38,7 @@
                         <span class="input-group-text">My Review</span>
                         <textarea class="form-control" name="review" id="review" rows="2" aria-label="With textarea" #review></textarea>
                       </div>
-                      <button type="button" class="btn btn-primary mt-2" (click)="[addBookToDatabase(reviewedBook, rating.value, review.value), showForm(i)]">Add</button>
+                      <button type="button" class="btn btn-primary mt-2" (click)="[updateBook(reviewedBook, rating.value, review.value), showForm(i)]">Add</button>
                     </fieldset>
                 </form>
                 <!-- End review form -->

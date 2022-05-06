@@ -49,6 +49,26 @@ export class BookApiService implements OnInit{
     return this.booksData;
   }
 
+  //Updates a book of given id
+  updateBook(id:string, book:IReviewedBook)
+  {
+    debugger
+    //update the book
+    this.booksDataCollection.doc(id).update(
+      {
+        title: book.title,
+        author: book.author,
+        publisher: book.publisher,
+        yearPublished : book.yearPublished,
+        description : book.description,
+        isbn : book.isbn,
+        coverArt : book.coverArt,
+        rating: book.rating,
+        review: book.review
+      });
+
+  }
+
   //Gracefully handle any errors
   private handleError (err:HttpErrorResponse)
    {
