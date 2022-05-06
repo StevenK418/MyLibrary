@@ -2,7 +2,7 @@
     <h2 class="m-3 mb-5 text-decoration-underline">My Favourites</h2>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-4" *ngFor="let reviewedBook of reviewsData let i=index">
+            <div class="col-12 col-md-4 mt-3" *ngFor="let reviewedBook of reviewsData let i=index">
                 <div ng-if="review">
                     <img ng-show="review.coverArt" src="{{reviewedBook.coverArt}}" width="60%" class="img-fluid img-thumbnail" alt="Front cover of {{reviewedBook.title}}"/>
                     <h2 class="fw-bold">{{reviewedBook.title}}</h2>
