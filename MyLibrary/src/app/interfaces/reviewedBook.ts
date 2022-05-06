@@ -5,7 +5,7 @@ export interface IReviewedBook
     author:string;
     publisher:string;
     yearPublished:string;
-    description:string;
+    description?:string;
     isbn:string;
     coverArt:string;
     rating?:string;
@@ -19,7 +19,7 @@ export class ReviewedBook
     author:string;
     publisher:string;
     yearPublished:string;
-    description:string;
+    description?:string;
     isbn:string;
     coverArt:string;
     rating?:string;

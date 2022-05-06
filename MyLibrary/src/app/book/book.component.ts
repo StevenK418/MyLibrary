@@ -24,13 +24,13 @@ export class BookComponent implements OnInit {
   {
       //Construct a new book
       let book:IReviewedBook = new ReviewedBook(
-                                  this.bookData.title as any,
-                                  this.bookData.author as any,
-                                  this.bookData.publisher as any,
-                                  this.bookData.yearPublished as any,
-                                  this.bookData.description as any,
-                                  this.bookData.isbn as any,
-                                  this.bookData.coverArt as any,
+                                  this.bookData.title,
+                                  this.bookData.author,
+                                  this.bookData.publisher,
+                                  this.bookData.yearPublished,
+                                  this.bookData.description[0],
+                                  this.bookData.isbn,
+                                  this.bookData.coverArt,
                                   rating,
                                   review
       );

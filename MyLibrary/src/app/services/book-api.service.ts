@@ -28,7 +28,9 @@ export class BookApiService implements OnInit{
   //Adds a new book to the database
   addBookData(book:IReviewedBook):void
   {
-      this.booksDataCollection.add(JSON.parse(JSON.stringify(book)));
+      this.booksDataCollection.add(JSON.parse(JSON.stringify(book, function(k, v) {
+        if (v === undefined) { return null; } return v;
+     })));
   }
 
   //Deletes a book of a given id from the database
@@ -43,8 +45,9 @@ export class BookApiService implements OnInit{
     //Connect to the db
     this.booksData = this.booksDataCollection.valueChanges({idField:`id`});
     this.booksData.subscribe(
-      data=> console.log("getBooksData" + JSON.stringify(data))
-    )
+      data=> console.log("getBooksData" + JSON.stringify(data, function(k, v) {
+        if (v === undefined) { return null; } return v;
+     })));
     //Return the book data from the database
     return this.booksData;
   }
@@ -52,21 +55,20 @@ export class BookApiService implements OnInit{
   //Updates a book of given id
   updateBook(id:string, book:IReviewedBook)
   {
-    debugger
+
     //update the book
     this.booksDataCollection.doc(id).update(
       {
         title: book.title,
         author: book.author,
         publisher: book.publisher,
-        yearPublished : book.yearPublished,
-        description : book.description,
-        isbn : book.isbn,
-        coverArt : book.coverArt,
+        yearPublished: book.yearPublished,
+        description: book.description,
+        isbn: book.isbn,
+        coverArt: book.coverArt,
         rating: book.rating,
         review: book.review
       });
-
   }
 
   //Gracefully handle any errors

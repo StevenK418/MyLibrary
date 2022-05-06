@@ -39,7 +39,7 @@ export class MyFavouritesComponent implements OnInit {
                                    bookObject.author,
                                    bookObject.publisher,
                                    bookObject.yearPublished,
-                                   bookObject.description,
+                                   bookObject.description!,
                                    bookObject.isbn,
                                    bookObject.coverArt,
                                    rating,
